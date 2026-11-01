@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PixGen Workshop</title>
+<meta name="description" content="PixGen: Rethinking the Generation Space for Visual Generative Models. A half-day workshop proposed for CVPR 2027 on the spaces visual generators work in: pixels, latents, representations, tokens, and physical measurements.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="PixGen: Rethinking the Generation Space for Visual Generative Models">
+<meta property="og:description" content="A half-day workshop proposed for CVPR 2027 on the spaces visual generators work in: pixels, latents, representations, tokens, and physical measurements.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pixgen-workshop.github.io/">
+<meta property="og:image" content="https://pixgen-workshop.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#overview">Skip to content</a>
+
+<header class="nav-wrap">
+  <nav class="nav glass" aria-label="Page sections">
+    <a class="brand" href="#top" aria-label="PixGen, back to top"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="10" width="13" height="13" rx="3" fill="#c3cdff"/><rect x="25.5" y="10" width="13" height="13" rx="3" fill="#dcc3ff"/><rect x="41" y="10" width="13" height="13" rx="3" fill="#ffc8dc"/><rect x="10" y="25.5" width="13" height="13" rx="3" fill="#bfe3ff"/><rect x="25.5" y="25.5" width="13" height="13" rx="3" fill="#1d1d1f"/><rect x="41" y="25.5" width="13" height="13" rx="3" fill="#ffd9b8"/><rect x="10" y="41" width="13" height="13" rx="3" fill="#cdf2e6"/><rect x="25.5" y="41" width="13" height="13" rx="3" fill="#c3cdff"/><rect x="41" y="41" width="13" height="13" rx="3" fill="#dcc3ff"/></svg>PixGen</a>
+    <div class="tabs">
+      <span class="tab-blob" aria-hidden="true"></span>
+      <a href="#overview">Overview</a>
+      <a href="#call">Call for papers</a>
+      <a href="#schedule">Program</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#organizers">Organizers</a>
+      <a href="#reading">Reading list</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <canvas class="field" id="field" aria-hidden="true"></canvas>
+  <div class="hero-fade" aria-hidden="true"></div>
+  <div class="hero-panel glass">
+    <p class="status"><span class="px" aria-hidden="true"></span>Proposal under review for CVPR 2027</p>
+    <h1 class="wordmark">PixGen</h1>
+    <p class="tagline">Rethinking the generation space for visual generative models</p>
+    <p class="hero-meta">A half-day, in-person workshop proposed for CVPR 2027 in Seattle, on June 20 or 21, 2027. All talks will be recorded.</p>
+    <div class="actions">
+      <a class="btn primary" href="#call">Call for papers</a>
+      <a class="btn" href="#schedule">See the program</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="overview">
+  <div class="container">
+   <div class="overview-grid">
+    <div class="prose">
+      <h2>Which space should a generator work in, and why?</h2>
+      <p class="lede">Every visual generator makes one choice before training begins: the space it generates in. For years, it was the latent space of a pretrained autoencoder. That default is now open.</p>
+      <p>Since latent diffusion, the default has been the latent space of an autoencoder trained for reconstruction. The recipe made high-resolution synthesis affordable, and it fixed three costs in advance: a ceiling on fine detail, encode–decode artifacts in editing, and a separate tokenizer for every new modality.</p>
+      <p>In the past twelve months, this default has been reopened from several directions at once. Pixel transformers with no autoencoder reach FID 1.46 on ImageNet 256×256 and scale to 1024² text-to-image generation. Representation autoencoders replace reconstruction VAEs with frozen foundation encoders and beat the FLUX VAE at every scale. Pixel-space generators distill into 4-step students that surpass their 25-step teachers, generate in a single step, and unify understanding and generation without any encoder. Image generators have even become generalist vision models. The question is no longer whether a generator can work without a VAE. It is which space a generator should work in, and why.</p>
+      <p>PixGen makes the generation space itself the object of study. Workshops on generative models organize around paradigms, applications, or efficiency, while the choice of space is made paper by paper. PixGen puts that choice at the center, across image, video, 3D, and world models.</p>
+    </div>
+
+    <div class="questions">
+      <h3>Five questions the workshop asks</h3>
+      <ul class="qlist">
+        <li>What makes a space good for generation: compression, semantic structure, invertibility, or none of them?</li>
+        <li>How do training objectives, from clean-image prediction and perceptual and adversarial losses to representation alignment, interact with the space?</li>
+        <li>What does each space cost at 4K, for video, and under few-step distillation?</li>
+        <li>Can one space serve generation, dense perception, and multimodal understanding together?</li>
+        <li>Should generation stop at sRGB pixels, or move toward what a camera or sensor actually measures?</li>
+      </ul>
+    </div>
+   </div>
+
+    <div class="topics">
+      <h3>Topics</h3>
+      <p class="muted">Topics include, but are not limited to:</p>
+      <ul class="topic-grid">
+        <li>Pixel-space and autoencoder-free generation</li>
+        <li>Latent, representation, and token spaces</li>
+        <li>Priors from vision foundation models</li>
+        <li>Few-step and real-time generation</li>
+        <li>High-resolution and video generation</li>
+        <li>Unified generation and perception</li>
+        <li>Beyond sRGB: RAW, HDR, depth, 3D, and function spaces</li>
+        <li>Evaluation and equal-compute comparisons of spaces</li>
+        <li>Provenance and detection for high-fidelity generators</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="call">
+  <div class="container">
+    <div class="prose">
+      <h2>Call for papers</h2>
+      <p class="lede">PixGen invites work on the spaces visual generators work in: pixels, latents, representations, tokens, and physical measurements, and on how that choice shapes fidelity, efficiency, resolution, and unified generation and understanding.</p>
+      <p>Submissions on any of the topics above are welcome. Following CVPR 2027 policy, an author may appear on at most 10 submissions. Papers should state their training data sources and compute.</p>
+    </div>
+
+    <div class="tracks">
+      <div class="track">
+        <h3>Archival track</h3>
+        <p>Full papers of up to 8 pages, excluding references, in the CVPR 2027 format. Accepted papers are published in the CVPR 2027 Workshop Proceedings. The deadline falls after CVPR 2027 main-conference decisions.</p>
+      </div>
+      <div class="track">
+        <h3>Non-archival track</h3>
+        <p>Extended abstracts of up to 4 pages, and papers recently accepted at other venues. These are presented at the workshop but not included in the proceedings, which makes the track a venue for student work in progress.</p>
+      </div>
+    </div>
+
+    <div class="dates-block">
+      <h3>Important dates</h3>
+      <p class="muted">Dates are tentative until the workshop is accepted. Deadlines are 23:59 anywhere on Earth.</p>
+      <table class="dates">
+        <tbody>
+          <tr><td>Submission site opens</td><td>January 15, 2027</td></tr>
+          <tr><td>Archival paper deadline</td><td>March 5, 2027</td></tr>
+          <tr><td>Archival notification</td><td>March 24, 2027</td></tr>
+          <tr><td>Author metadata to CVPR</td><td>March 29, 2027</td></tr>
+          <tr><td>Camera-ready to CVPR</td><td>April 23, 2027</td></tr>
+          <tr><td>Non-archival deadline</td><td>April 23, 2027</td></tr>
+          <tr><td>Non-archival notification</td><td>May 12, 2027</td></tr>
+          <tr><td>Workshop</td><td>June 20 or 21, 2027</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3>Review process</h3>
+        <p>All submissions are managed on OpenReview, and complete author profiles are required. Each new submission receives at least three double-blind reviews and a meta-review by an organizer. Recently accepted papers are screened for topical fit. Organizers with a conflict of interest are recused from reviewing and award decisions. Student authors join the reviewer pool.</p>
+      </div>
+      <div>
+        <h3>Awards</h3>
+        <p>Three awards are selected by the best paper committee: Best Paper (USD 1,000), Best Paper Runner-up (USD 500), and Best Student Paper (USD 500, for a student first author). The awards are sponsored by Adobe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="schedule">
+  <div class="container">
+    <div class="prose">
+      <h2>Program</h2>
+      <p class="lede">Six invited talks, an oral session with the three top-reviewed papers, and a closing poster session for all accepted papers.</p>
+      <p class="muted">Times are shown for a morning slot. The same program runs unchanged in an afternoon slot. Audience questions are collected on a live online board.</p>
+    </div>
+    <table class="sched">
+      <tbody>
+        <tr><td>08:30 – 08:40</td><td>Opening remarks</td></tr>
+        <tr><td>08:40 – 09:00</td><td>Invited talk 1</td></tr>
+        <tr><td>09:00 – 09:20</td><td>Invited talk 2</td></tr>
+        <tr><td>09:20 – 09:40</td><td>Invited talk 3</td></tr>
+        <tr><td>09:40 – 10:10</td><td>Oral presentations, three papers including the award papers</td></tr>
+        <tr class="break"><td>10:10 – 10:25</td><td>Coffee break</td></tr>
+        <tr><td>10:25 – 10:45</td><td>Invited talk 4</td></tr>
+        <tr><td>10:45 – 11:05</td><td>Invited talk 5</td></tr>
+        <tr><td>11:05 – 11:25</td><td>Invited talk 6</td></tr>
+        <tr><td>11:25 – 11:35</td><td>Paper awards and closing remarks</td></tr>
+        <tr><td>11:35 – 12:10</td><td>Poster session, with speakers and organizers on the floor</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="speakers">
+  <div class="container">
+    <div class="prose">
+      <h2>Invited speakers</h2>
+      <p class="lede">Six speakers who build generators in pixel, latent, representation, and measurement spaces. Talk topics are tentative.</p>
+    </div>
+    <ul class="people grid-3">
+      <li class="person">
+        <a class="photo" href="https://mensink.nu/" target="_blank" rel="noopener"><img src="assets/img/people/mensink.jpg" alt="Thomas Mensink" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://mensink.nu/" target="_blank" rel="noopener">Thomas Mensink</a></h3>
+        <p class="aff">Research Scientist, Google DeepMind</p>
+        <p class="topic">Pixels versus learned latents at scale</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://wxiong.me/" target="_blank" rel="noopener"><img src="assets/img/people/wxiong.jpg" alt="Wei Xiong" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://wxiong.me/" target="_blank" rel="noopener">Wei Xiong</a></h3>
+        <p class="aff">Senior Research Scientist, NVIDIA</p>
+        <p class="topic">Pixel diffusion transformers, from autoencoder-free to representation-grounded</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://zzutk.github.io/" target="_blank" rel="noopener"><img src="assets/img/people/zzhang.jpg" alt="Zhifei Zhang" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://zzutk.github.io/" target="_blank" rel="noopener">Zhifei Zhang</a></h3>
+        <p class="aff">Senior Research Engineer, Adobe Research</p>
+        <p class="topic">Precise editing and control in pixel space</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://jberner.info/" target="_blank" rel="noopener"><img src="assets/img/people/berner.jpg" alt="Julius Berner" width="320" height="320" loading="lazy"></a>
+        <h3><a href="https://jberner.info/" target="_blank" rel="noopener">Julius Berner</a></h3>
+        <p class="aff">Research Scientist, NVIDIA</p>
+        <p class="topic">Few-step generation in any space</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://gabeur.github.io/" target="_blank" rel="noopener"><img src="assets/img/people/gabeur.jpg" alt="Valentin Gabeur" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://gabeur.github.io/" target="_blank" rel="noopener">Valentin Gabeur</a></h3>
+        <p class="aff">Staff Research Scientist, Google DeepMind</p>
+        <p class="topic">Image generators as generalist vision models</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://www.cs.princeton.edu/~fheide/" target="_blank" rel="noopener"><img src="assets/img/people/heide.jpg" alt="Felix Heide" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://www.cs.princeton.edu/~fheide/" target="_blank" rel="noopener">Felix Heide</a></h3>
+        <p class="aff">Professor of Computer Science, Princeton University</p>
+        <p class="topic">Generation spaces beyond the RGB pixel</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="organizers">
+  <div class="container">
+    <div class="prose">
+      <h2>Organizers</h2>
+      <p class="lede">A team from academia and industry that has shipped generative models to millions of users and co-authored much of the recent pixel-space work.</p>
+    </div>
+    <ul class="people grid-4">
+      <li class="person">
+        <a class="photo" href="https://sheng-li.org/" target="_blank" rel="noopener"><img src="assets/img/people/shengli.jpg" alt="Sheng Li" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://sheng-li.org/" target="_blank" rel="noopener">Sheng Li</a></h3>
+        <p class="aff">Associate Professor, University of Virginia</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://research.adobe.com/person/zhe-lin/" target="_blank" rel="noopener"><img src="assets/img/people/zhelin.jpg" alt="Zhe Lin" width="320" height="320" loading="lazy"></a>
+        <h3><a href="https://research.adobe.com/person/zhe-lin/" target="_blank" rel="noopener">Zhe Lin</a></h3>
+        <p class="aff">Senior Principal Scientist, Adobe Research</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://htzheng.github.io/" target="_blank" rel="noopener"><img src="assets/img/people/htzheng.jpg" alt="Haitian Zheng" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://htzheng.github.io/" target="_blank" rel="noopener">Haitian Zheng</a></h3>
+        <p class="aff">Research Scientist, Adobe Research</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://varunjampani.github.io/" target="_blank" rel="noopener"><img src="assets/img/people/jampani.jpg" alt="Varun Jampani" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://varunjampani.github.io/" target="_blank" rel="noopener">Varun Jampani</a></h3>
+        <p class="aff">Chief AI Officer, Arcade AI</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://daiqing-qi.github.io/" target="_blank" rel="noopener"><img src="assets/img/people/daiqing.jpg" alt="Daiqing Qi" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://daiqing-qi.github.io/" target="_blank" rel="noopener">Daiqing Qi</a></h3>
+        <p class="aff">Senior Applied Scientist, Microsoft</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://bio.lehanyang.info/" target="_blank" rel="noopener"><img src="assets/img/people/lehan.jpg" alt="Lehan Yang" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://bio.lehanyang.info/" target="_blank" rel="noopener">Lehan Yang</a></h3>
+        <p class="aff">Ph.D. Student, University of Virginia</p>
+        <p class="role">Review chair and primary contact</p>
+      </li>
+      <li class="person">
+        <a class="photo" href="https://linxin0.github.io/" target="_blank" rel="noopener"><img src="assets/img/people/xinlin.jpg" alt="Xin Lin" width="480" height="480" loading="lazy"></a>
+        <h3><a href="https://linxin0.github.io/" target="_blank" rel="noopener">Xin Lin</a></h3>
+        <p class="aff">Ph.D. Student, UC San Diego</p>
+        <p class="role">Logistics and secondary contact</p>
+      </li>
+    </ul>
+    <p class="contact">Questions about the workshop go to Lehan Yang at <a href="mailto:lehan.yang.cs@gmail.com">lehan.yang.cs@gmail.com</a> or Xin Lin at <a href="mailto:linxin020826@gmail.com">linxin020826@gmail.com</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="reading">
+  <div class="container">
+    <div class="prose">
+      <h2>Reading list</h2>
+      <p class="lede">A public, growing list of papers on the generation space. Suggestions are welcome by email.</p>
+    </div>
+    <div class="reading-group">
+      <h3>Pixel-space generation without an autoencoder</h3>
+      <ul class="reading">
+        <li><a class="title" href="https://arxiv.org/abs/2301.11093" target="_blank" rel="noopener">Simple diffusion: End-to-end diffusion for high resolution images</a><span class="meta">Hoogeboom, Heek, Salimans</span><span class="year">2023</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2401.11605" target="_blank" rel="noopener">Scalable High-Resolution Pixel-Space Image Synthesis with Hourglass Diffusion Transformers</a><span class="meta">Crowson et al.</span><span class="year">2024</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2410.19324" target="_blank" rel="noopener">Simpler Diffusion (SiD2): 1.5 FID on ImageNet512 with pixel-space diffusion</a><span class="meta">Hoogeboom, Mensink, Heek et al.</span><span class="year">2024</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2504.07963" target="_blank" rel="noopener">PixelFlow: Pixel-Space Generative Models with Flow</a><span class="meta">Chen et al.</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2507.23268" target="_blank" rel="noopener">PixNerd: Pixel Neural Field Diffusion</a><span class="meta">Wang et al.</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2511.13720" target="_blank" rel="noopener">Back to Basics: Let Denoising Generative Models Denoise</a><span class="meta">Li, He</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2511.20645" target="_blank" rel="noopener">PixelDiT: Pixel Diffusion Transformers for Image Generation</a><span class="meta">Yu, Xiong, Nie et al.</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2511.19365" target="_blank" rel="noopener">DeCo: Frequency-Decoupled Pixel Diffusion for End-to-End Image Generation</a><span class="meta">Ma et al.</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2602.02493" target="_blank" rel="noopener">PixelGen: Improving Pixel Diffusion with Perceptual Supervision</a><span class="meta">Ma, Xu, Zhang</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2608.15705" target="_blank" rel="noopener">PixelControl: Fine-Grained Condition Fidelity in Text-to-Image Diffusion</a><span class="meta">Lin et al.</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2609.38170" target="_blank" rel="noopener">Adversarial Training for Pixel Diffusion</a><span class="meta">Lin et al.</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2610.00483" target="_blank" rel="noopener">PixelDense: Dense Prediction as Representation Alignment for Pixel Diffusion</a><span class="meta">Yang, Qi et al.</span><span class="year">2026</span></li>
+      </ul>
+    </div>
+    <div class="reading-group">
+      <h3>Latent, representation, and token spaces</h3>
+      <ul class="reading">
+        <li><a class="title" href="https://arxiv.org/abs/2410.06940" target="_blank" rel="noopener">Representation Alignment for Generation: Training Diffusion Transformers Is Easier Than You Think</a><span class="meta">Yu et al.</span><span class="year">2024</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2510.11690" target="_blank" rel="noopener">Diffusion Transformers with Representation Autoencoders</a><span class="meta">Zheng, Ma, Tong, Xie</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2512.03247" target="_blank" rel="noopener">PixPerfect: Seamless Latent Diffusion Local Editing with Discriminative Pixel-Space Refinement</a><span class="meta">Zheng et al.</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2601.16208" target="_blank" rel="noopener">Scaling Text-to-Image Diffusion Transformers with Representation Autoencoders</a><span class="meta">Tong et al.</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2602.17270" target="_blank" rel="noopener">Unified Latents (UL): How to train your latents</a><span class="meta">Heek, Hoogeboom, Mensink, Salimans</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2603.17812" target="_blank" rel="noopener">ChopGrad: Pixel-Wise Losses for Latent Video Diffusion via Truncated Backpropagation</a><span class="meta">Rivkin et al.</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2610.21202" target="_blank" rel="noopener">UltraDiff: Transferring High-Fidelity Priors to Compressed Latent Spaces for High-Resolution Image Generation</a><span class="meta">Ren, Zheng et al.</span><span class="year">2026</span></li>
+      </ul>
+    </div>
+    <div class="reading-group">
+      <h3>Few-step generation</h3>
+      <ul class="reading">
+        <li><a class="title" href="https://arxiv.org/abs/2505.13447" target="_blank" rel="noopener">Mean Flows for One-step Generative Modeling</a><span class="meta">Geng et al.</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2601.09881" target="_blank" rel="noopener">Transition Matching Distillation for Fast Video Generation</a><span class="meta">Nie, Berner et al.</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2607.26004" target="_blank" rel="noopener">Parallel Decoding Distillation for Fast Image and Video Generation</a><span class="meta">Shaul, Liu, Vahdat, Berner</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2609.38156" target="_blank" rel="noopener">DMA²: Pixel-space Distribution Matching with Adversarial and Anchor Losses</a><span class="meta">Lin et al.</span><span class="year">2026</span></li>
+      </ul>
+    </div>
+    <div class="reading-group">
+      <h3>Unified generation and perception</h3>
+      <ul class="reading">
+        <li><a class="title" href="https://arxiv.org/abs/2503.09344" target="_blank" rel="noopener">Unified Dense Prediction of Video Diffusion</a><span class="meta">Yang et al.</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2604.24763" target="_blank" rel="noopener">Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation</a><span class="meta">Liu et al.</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2605.11061" target="_blank" rel="noopener">HiDream-O1-Image: A Natively Unified Image Generative Foundation Model with Pixel-level Unified Transformer</a><span class="meta">Cai et al.</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2605.12500" target="_blank" rel="noopener">SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture</a><span class="meta">Diao et al.</span><span class="year">2026</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2609.38597" target="_blank" rel="noopener">PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation</a><span class="meta">Wei et al.</span><span class="year">2026</span></li>
+      </ul>
+    </div>
+    <div class="reading-group">
+      <h3>Beyond the RGB pixel</h3>
+      <ul class="reading">
+        <li><a class="title" href="https://arxiv.org/abs/2405.04662" target="_blank" rel="noopener">Radar Fields: Frequency-Space Neural Scene Representations for FMCW Radar</a><span class="meta">Borts et al.</span><span class="year">2024</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2503.22496" target="_blank" rel="noopener">Scenario Dreamer: Vectorized Latent Diffusion for Generating Driving Simulation Environments</a><span class="meta">Rowe et al.</span><span class="year">2025</span></li>
+        <li><a class="title" href="https://arxiv.org/abs/2603.29089" target="_blank" rel="noopener">WorldFlow3D: Flowing Through 3D Distributions for Unbounded World Generation</a><span class="meta">Joshi, Ost, Heide</span><span class="year">2026</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p class="foot-brand" aria-hidden="true">PixGen</p>
+    <p>PixGen is a workshop proposal submitted to CVPR 2027. The program, dates, and speakers are tentative until the proposal is accepted, and this page will be updated when the outcome is known.</p>
+    <p>Contact <a href="mailto:lehan.yang.cs@gmail.com">lehan.yang.cs@gmail.com</a> or <a href="mailto:linxin020826@gmail.com">linxin020826@gmail.com</a>. Paper awards sponsored by Adobe.</p>
+    <p class="small">Site source on <a href="https://github.com/PixGen-Workshop/PixGen-Workshop.github.io" target="_blank" rel="noopener">GitHub</a>.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
