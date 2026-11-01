@@ -388,7 +388,6 @@ tr:last-child td { border-bottom: 1px solid var(--line); }
   list-style: none; margin: 8px 0 0; padding: 0;
   display: grid; gap: 44px 28px;
 }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
 .person .photo { display: block; border-radius: var(--r-l); overflow: hidden; background: var(--ground-2); }
 .person img {
@@ -398,7 +397,6 @@ tr:last-child td { border-bottom: 1px solid var(--line); }
 .person h3 { margin: 16px 0 3px; font-size: 18px; }
 .person h3 a { color: var(--ink); }
 .person .aff { margin: 0; font-size: 15px; color: var(--ink-2); line-height: 1.4; }
-.person .role { margin: 4px 0 0; font-size: 14px; color: var(--ink-2); }
 .person .topic {
   margin: 10px 0 0;
   font-family: var(--font-display);
@@ -409,6 +407,18 @@ tr:last-child td { border-bottom: 1px solid var(--line); }
   text-wrap: pretty;
 }
 .contact { margin: 44px 0 0; max-width: var(--measure); color: var(--ink-2); }
+
+/* Speakers: compact rows, photo beside the text, six on one screen */
+.speakers { grid-template-columns: 1fr 1fr; gap: 30px 48px; max-width: 1000px; }
+.speakers .person {
+  display: grid; grid-template-columns: 124px minmax(0, 1fr);
+  column-gap: 22px; align-items: start;
+}
+.speakers .photo { grid-column: 1; grid-row: 1 / span 3; border-radius: var(--r-m); }
+.speakers img { border-radius: var(--r-m); }
+.speakers h3 { grid-column: 2; margin: 2px 0 2px; }
+.speakers .aff { grid-column: 2; }
+.speakers .topic { grid-column: 2; margin-top: 8px; font-size: 19px; }
 
 /* Reading list */
 .reading { list-style: none; margin: 8px 0 0; padding: 0; max-width: 820px; }
@@ -474,7 +484,10 @@ tr:last-child td { border-bottom: 1px solid var(--line); }
   .qlist li { padding-left: 28px; }
   .qlist li::before { top: 27px; width: 10px; height: 10px; }
   .tracks, .two-col { grid-template-columns: 1fr; }
-  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 18px; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 18px; }
+  .speakers { grid-template-columns: 1fr; gap: 24px; }
+  .speakers .person { grid-template-columns: 96px minmax(0, 1fr); column-gap: 16px; }
+  .speakers h3 { margin-top: 0; }
   .topic-grid { grid-template-columns: 1fr; }
   .person .topic { font-size: 18px; }
   .sched td:first-child { width: 112px; }
@@ -483,7 +496,7 @@ tr:last-child td { border-bottom: 1px solid var(--line); }
   .footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 }
 @media (max-width: 400px) {
-  .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; gap: 24px 14px; }
+  .grid-4 { grid-template-columns: 1fr 1fr; gap: 24px 14px; }
   .person h3 { font-size: 16px; }
 }
 

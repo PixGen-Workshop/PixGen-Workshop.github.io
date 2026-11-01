@@ -58,10 +58,9 @@
    <div class="overview-grid">
     <div class="prose">
       <h2>Which space should a generator work in, and why?</h2>
-      <p class="lede">Every visual generator makes one choice before training begins: the space it generates in. For years, it was the latent space of a pretrained autoencoder. That default is now open.</p>
-      <p>Since latent diffusion, the default has been the latent space of an autoencoder trained for reconstruction. The recipe made high-resolution synthesis affordable, and it fixed three costs in advance: a ceiling on fine detail, encode–decode artifacts in editing, and a separate tokenizer for every new modality.</p>
-      <p>In the past twelve months, this default has been reopened from several directions at once. Pixel transformers with no autoencoder reach FID 1.46 on ImageNet 256×256 and scale to 1024² text-to-image generation. Representation autoencoders replace reconstruction VAEs with frozen foundation encoders and beat the FLUX VAE at every scale. Pixel-space generators distill into 4-step students that surpass their 25-step teachers, generate in a single step, and unify understanding and generation without any encoder. Image generators have even become generalist vision models. The question is no longer whether a generator can work without a VAE. It is which space a generator should work in, and why.</p>
-      <p>PixGen makes the generation space itself the object of study. Workshops on generative models organize around paradigms, applications, or efficiency, while the choice of space is made paper by paper. PixGen puts that choice at the center, across image, video, 3D, and world models.</p>
+      <p class="lede">Every visual generator makes one choice before training begins: the space it generates in. For years, that was the latent space of a pretrained autoencoder. That default is now open.</p>
+      <p>Pixel diffusion is the clearest sign. Diffusion transformers that generate directly in pixels, with no autoencoder at all, now match latent diffusion on ImageNet and scale to 1024² text-to-image generation. Dropping the autoencoder drops its costs with it: the ceiling on fine detail, the encode–decode artifacts in editing, and a separate tokenizer for every new modality.</p>
+      <p>The same question is open from other directions. Representation encoders are replacing reconstruction VAEs, few-step distillation is redrawing the cost of every space, and unified models understand and generate without any encoder. PixGen makes the generation space itself the object of study, across image, video, 3D, and world models.</p>
     </div>
 
     <div class="questions">
@@ -174,7 +173,7 @@
       <h2>Invited speakers</h2>
       <p class="lede">Six speakers who build generators in pixel, latent, representation, and measurement spaces. Talk topics are tentative.</p>
     </div>
-    <ul class="people grid-3">
+    <ul class="people speakers">
       <li class="person">
         <a class="photo" href="https://mensink.nu/" target="_blank" rel="noopener"><img src="assets/img/people/mensink.jpg" alt="Thomas Mensink" width="480" height="480" loading="lazy"></a>
         <h3><a href="https://mensink.nu/" target="_blank" rel="noopener">Thomas Mensink</a></h3>
@@ -251,16 +250,14 @@
         <a class="photo" href="https://bio.lehanyang.info/" target="_blank" rel="noopener"><img src="assets/img/people/lehan.jpg" alt="Lehan Yang" width="480" height="480" loading="lazy"></a>
         <h3><a href="https://bio.lehanyang.info/" target="_blank" rel="noopener">Lehan Yang</a></h3>
         <p class="aff">Ph.D. Student, University of Virginia</p>
-        <p class="role">Review chair and primary contact</p>
       </li>
       <li class="person">
         <a class="photo" href="https://linxin0.github.io/" target="_blank" rel="noopener"><img src="assets/img/people/xinlin.jpg" alt="Xin Lin" width="480" height="480" loading="lazy"></a>
         <h3><a href="https://linxin0.github.io/" target="_blank" rel="noopener">Xin Lin</a></h3>
         <p class="aff">Ph.D. Student, UC San Diego</p>
-        <p class="role">Logistics and secondary contact</p>
       </li>
     </ul>
-    <p class="contact">Questions about the workshop go to Lehan Yang at <a href="mailto:lehan.yang.cs@gmail.com">lehan.yang.cs@gmail.com</a> or Xin Lin at <a href="mailto:linxin020826@gmail.com">linxin020826@gmail.com</a>.</p>
+    <p class="contact">Questions about the workshop go to Lehan Yang at <a href="mailto:lehan.yang.cs@gmail.com">lehan.yang.cs@gmail.com</a>.</p>
   </div>
 </section>
 
@@ -334,7 +331,7 @@
   <div class="container">
     <p class="foot-brand" aria-hidden="true">PixGen</p>
     <p>PixGen is a workshop proposal submitted to CVPR 2027. The program, dates, and speakers are tentative until the proposal is accepted, and this page will be updated when the outcome is known.</p>
-    <p>Contact <a href="mailto:lehan.yang.cs@gmail.com">lehan.yang.cs@gmail.com</a> or <a href="mailto:linxin020826@gmail.com">linxin020826@gmail.com</a>. Paper awards sponsored by Adobe.</p>
+    <p>Contact <a href="mailto:lehan.yang.cs@gmail.com">lehan.yang.cs@gmail.com</a>. Paper awards sponsored by Adobe.</p>
     <p class="small">Site source on <a href="https://github.com/PixGen-Workshop/PixGen-Workshop.github.io" target="_blank" rel="noopener">GitHub</a>.</p>
   </div>
 </footer>
