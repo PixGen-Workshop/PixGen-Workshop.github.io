@@ -24,8 +24,10 @@
 
 <header class="nav-wrap">
   <nav class="nav glass" aria-label="Page sections">
+    <span class="shine" aria-hidden="true"></span>
     <a class="brand" href="#top" aria-label="PixGen, back to top"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="10" width="13" height="13" rx="3" fill="#c3cdff"/><rect x="25.5" y="10" width="13" height="13" rx="3" fill="#dcc3ff"/><rect x="41" y="10" width="13" height="13" rx="3" fill="#ffc8dc"/><rect x="10" y="25.5" width="13" height="13" rx="3" fill="#bfe3ff"/><rect x="25.5" y="25.5" width="13" height="13" rx="3" fill="#1d1d1f"/><rect x="41" y="25.5" width="13" height="13" rx="3" fill="#ffd9b8"/><rect x="10" y="41" width="13" height="13" rx="3" fill="#cdf2e6"/><rect x="25.5" y="41" width="13" height="13" rx="3" fill="#c3cdff"/><rect x="41" y="41" width="13" height="13" rx="3" fill="#dcc3ff"/></svg>PixGen</a>
     <div class="tabs">
+      <span class="tab-hover" aria-hidden="true"></span>
       <span class="tab-blob" aria-hidden="true"></span>
       <a href="#overview">Overview</a>
       <a href="#call">Call for papers</a>
@@ -42,6 +44,7 @@
   <canvas class="field" id="field" aria-hidden="true"></canvas>
   <div class="hero-fade" aria-hidden="true"></div>
   <div class="hero-panel glass">
+    <span class="shine" aria-hidden="true"></span>
     <p class="status"><span class="px" aria-hidden="true"></span>Proposal under review for CVPR 2027</p>
     <h1 class="wordmark">PixGen</h1>
     <p class="tagline">Rethinking the generation space for visual generative models</p>
@@ -66,11 +69,11 @@
     <div class="questions">
       <h3>Five questions the workshop asks</h3>
       <ul class="qlist">
-        <li>What makes a space good for generation: compression, semantic structure, invertibility, or none of them?</li>
-        <li>How do training objectives, from clean-image prediction and perceptual and adversarial losses to representation alignment, interact with the space?</li>
-        <li>What does each space cost at 4K, for video, and under few-step distillation?</li>
-        <li>Can one space serve generation, dense perception, and multimodal understanding together?</li>
-        <li>Should generation stop at sRGB pixels, or move toward what a camera or sensor actually measures?</li>
+        <li class="pixel-bullet">What makes a space good for generation: compression, semantic structure, invertibility, or none of them?</li>
+        <li class="pixel-bullet">How do training objectives, from clean-image prediction and perceptual and adversarial losses to representation alignment, interact with the space?</li>
+        <li class="pixel-bullet">What does each space cost at 4K, for video, and under few-step distillation?</li>
+        <li class="pixel-bullet">Can one space serve generation, dense perception, and multimodal understanding together?</li>
+        <li class="pixel-bullet">Should generation stop at sRGB pixels, or move toward what a camera or sensor actually measures?</li>
       </ul>
     </div>
    </div>
@@ -79,15 +82,15 @@
       <h3>Topics</h3>
       <p class="muted">Topics include, but are not limited to:</p>
       <ul class="topic-grid">
-        <li>Pixel-space and autoencoder-free generation</li>
-        <li>Latent, representation, and token spaces</li>
-        <li>Priors from vision foundation models</li>
-        <li>Few-step and real-time generation</li>
-        <li>High-resolution and video generation</li>
-        <li>Unified generation and perception</li>
-        <li>Beyond sRGB: RAW, HDR, depth, 3D, and function spaces</li>
-        <li>Evaluation and equal-compute comparisons of spaces</li>
-        <li>Provenance and detection for high-fidelity generators</li>
+        <li class="pixel-bullet">Pixel-space and autoencoder-free generation</li>
+        <li class="pixel-bullet">Latent, representation, and token spaces</li>
+        <li class="pixel-bullet">Priors from vision foundation models</li>
+        <li class="pixel-bullet">Few-step and real-time generation</li>
+        <li class="pixel-bullet">High-resolution and video generation</li>
+        <li class="pixel-bullet">Unified generation and perception</li>
+        <li class="pixel-bullet">Beyond sRGB: RAW, HDR, depth, 3D, and function spaces</li>
+        <li class="pixel-bullet">Evaluation and equal-compute comparisons of spaces</li>
+        <li class="pixel-bullet">Provenance and detection for high-fidelity generators</li>
       </ul>
     </div>
   </div>
@@ -329,7 +332,7 @@
 
 <footer class="footer">
   <div class="container">
-    <p class="foot-brand" aria-hidden="true">PixGen</p>
+    <p class="foot-brand" aria-hidden="true"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="10" width="13" height="13" rx="3" fill="#c3cdff"/><rect x="25.5" y="10" width="13" height="13" rx="3" fill="#dcc3ff"/><rect x="41" y="10" width="13" height="13" rx="3" fill="#ffc8dc"/><rect x="10" y="25.5" width="13" height="13" rx="3" fill="#bfe3ff"/><rect x="25.5" y="25.5" width="13" height="13" rx="3" fill="#1d1d1f"/><rect x="41" y="25.5" width="13" height="13" rx="3" fill="#ffd9b8"/><rect x="10" y="41" width="13" height="13" rx="3" fill="#cdf2e6"/><rect x="25.5" y="41" width="13" height="13" rx="3" fill="#c3cdff"/><rect x="41" y="41" width="13" height="13" rx="3" fill="#dcc3ff"/></svg>PixGen</p>
     <p>PixGen is a workshop proposal submitted to CVPR 2027. The program, dates, and speakers are tentative until the proposal is accepted, and this page will be updated when the outcome is known.</p>
     <p>Contact <a href="mailto:lehan.yang.cs@gmail.com">lehan.yang.cs@gmail.com</a>. Paper awards sponsored by Adobe.</p>
     <p class="small">Site source on <a href="https://github.com/PixGen-Workshop/PixGen-Workshop.github.io" target="_blank" rel="noopener">GitHub</a>.</p>

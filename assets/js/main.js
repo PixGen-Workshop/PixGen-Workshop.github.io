@@ -51,8 +51,71 @@
     activeTab = tab;
   }
 
+  /* hover lens: glides between tabs under the pointer, fades when it leaves */
+  var hoverBlob = document.querySelector('.tab-hover');
+  var hoverShown = false;
+  function placeHover(tab) {
+    var r = tab.getBoundingClientRect();
+    var p = tabsBox.getBoundingClientRect();
+    var x = r.left - p.left + tabsBox.scrollLeft;
+    if (!hoverShown) {
+      hoverBlob.style.transition = 'opacity 0.3s ease';
+      hoverBlob.style.width = r.width + 'px';
+      hoverBlob.style.transform = 'translateX(' + x + 'px)';
+      void hoverBlob.offsetWidth;
+      hoverBlob.style.transition = '';
+    } else {
+      hoverBlob.style.width = r.width + 'px';
+      hoverBlob.style.transform = 'translateX(' + x + 'px)';
+    }
+    hoverBlob.style.opacity = '1';
+    hoverShown = true;
+  }
+  if (hoverBlob) {
+    tabs.forEach(function (a) {
+      a.addEventListener('pointerenter', function (e) {
+        if (e.pointerType === 'touch') return;
+        placeHover(a);
+      });
+    });
+    tabsBox.addEventListener('pointerleave', function () {
+      hoverBlob.style.opacity = '0';
+      hoverShown = false;
+    });
+  }
+
+  /* specular highlight that follows the pointer across glass surfaces */
+  Array.prototype.forEach.call(document.querySelectorAll('.nav, .hero-panel'), function (el) {
+    var pending = false, px = 0, py = 0;
+    el.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      px = e.clientX; py = e.clientY;
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () {
+        pending = false;
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (px - r.left) + 'px');
+        el.style.setProperty('--my', (py - r.top) + 'px');
+        el.classList.add('lit');
+      });
+    });
+    el.addEventListener('pointerleave', function () { el.classList.remove('lit'); });
+  });
+
+  /* the hero panel drifts up a little slower than the page and fades under the nav */
+  var panel = document.querySelector('.hero-panel');
+  function parallax(y) {
+    if (!panel || !hero || reduceMotion) return;
+    var h = hero.offsetHeight;
+    if (y > h) { panel.style.transform = ''; panel.style.opacity = ''; return; }
+    panel.style.transform = 'translate3d(0,' + (y * 0.14).toFixed(1) + 'px,0)';
+    panel.style.opacity = Math.max(0, 1 - y / (h * 0.75)).toFixed(3);
+  }
+
   function updateNav() {
     var y = window.scrollY || window.pageYOffset;
+    parallax(y);
     var probe = y + window.innerHeight * 0.34;
     var current = null;
     for (var i = 0; i < sections.length; i++) {
