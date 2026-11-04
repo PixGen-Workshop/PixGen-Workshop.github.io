@@ -503,7 +503,7 @@ tr:last-child td { border-bottom: 1px solid var(--line); }
   list-style: none; margin: 8px 0 0; padding: 0;
   display: grid; gap: 44px 28px;
 }
-.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
 .person .photo {
   position: relative;
   display: block; border-radius: var(--r-l); overflow: hidden;
@@ -607,7 +607,7 @@ tr:last-child td { border-bottom: 1px solid var(--line); }
 @media (max-width: 960px) {
   .overview-grid { grid-template-columns: 1fr; }
   .questions { position: static; padding-top: 0; margin-top: 24px; }
-  .grid-4 { grid-template-columns: repeat(3, 1fr); }
+  .grid-5 { grid-template-columns: repeat(3, 1fr); }
   .topic-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
@@ -634,7 +634,7 @@ tr:last-child td { border-bottom: 1px solid var(--line); }
   .qlist li { padding-left: 28px; }
   .qlist li::before { top: 27px; width: 10px; height: 10px; }
   .tracks, .two-col { grid-template-columns: 1fr; }
-  .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 18px; }
+  .grid-5 { grid-template-columns: repeat(2, 1fr); gap: 32px 18px; }
   .speakers { grid-template-columns: 1fr; gap: 24px; }
   .speakers .person { grid-template-columns: 96px minmax(0, 1fr); column-gap: 16px; }
   .speakers h3 { margin-top: 0; }
@@ -647,7 +647,7 @@ tr:last-child td { border-bottom: 1px solid var(--line); }
   .footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 }
 @media (max-width: 400px) {
-  .grid-4 { grid-template-columns: 1fr 1fr; gap: 24px 14px; }
+  .grid-5 { grid-template-columns: 1fr 1fr; gap: 24px 14px; }
   .person h3 { font-size: 16px; }
 }
 
